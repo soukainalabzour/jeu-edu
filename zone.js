@@ -26,19 +26,22 @@ for (let i=1; i<tab.length+1 ; i++){
 
 }
 
+function myFunction(){
+    const dragbox = document.getElementById("alpha");
+    const divs = dragbox.querySelectorAll(".al");
+      // Convert the NodeList to an array for easier manipulation
+      const divArray = Array.from(divs);
 
-    
+      // Shuffle the array
+      for (let i = divArray.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [divArray[i], divArray[j]] = [divArray[j], divArray[i]];
+      }
 
+      // Empty dragbox
+      dragbox.innerHTML = '';
 
+      // Append the shuffled divs back to the container
+      divArray.forEach(div => dragbox.appendChild(div));
 
-
-
-
-
-   
-
-
-
-
-
-
+}
